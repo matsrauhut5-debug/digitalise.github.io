@@ -3292,7 +3292,7 @@ input, select, textarea {
 
 /* Intro */
 #intro {
-  background-color: #2C2C2C; /* Dark background for top section */
+  background-color: rgba(255, 127, 17, 0.6); /* Orange (#FF7F11) at 60% transparency */
   color: #ffffff;
   padding: 8rem 4rem 6rem 4rem;
   display: flex;
@@ -4588,6 +4588,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
