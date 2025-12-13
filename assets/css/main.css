@@ -3446,41 +3446,50 @@ input, select, textarea {
 			border-bottom-color: #ffffff;
 		}
 
-
-
-
+			
+/* Header logo: non-clickable, no border, no hover colour */
 #header .logo {
-  transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
-  pointer-events: auto;
-  border-style: solid;
-  border-color: #FFFFFF; /* Dark border color */
-  border-width: 4px; /* Slightly thinner for modern look */
-  border-radius: 8px; /* Square corners */
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
-  font-size: 2rem;
-  font-weight: 900;
-  letter-spacing: 0.075em;
-  line-height: 1;
-  padding: 1rem 1.75rem;
-  text-transform: uppercase;
-  color: #2C2C2C; /* Text color matches your theme */
-  background-color: #FFFFFF; /* White background inside the box */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;     /* safe even though not a link */
+  border: none;
+  box-shadow: none;
+  background: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Override hover color for header logo */
-#header .logo:hover {
-    border-color: #FF7F11 !important; /* Accent color for border */
-    color: #FF7F11 !important;        /* Accent color for text */
+/* Control the visible logo size */
+#header .logo img {
+  height: 56px;              /* adjust to taste: 48–72px works well */
+  width: auto;
+  display: block;
+  border: none;              /* ensure no default image border */
+  box-shadow: none;
+}
+
+/* Extra safety: even if someone wraps it in a link later, keep it clean */
+#header a.logo,
+#header a.logo:hover,
+#header a.logo:focus,
+#header a.logo:active {
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+  color: inherit !important; /* prevents theme accent on hover */
+  text-decoration: none !important;
+}
+
+/* If your global theme adds a bottom border to links inside the header, kill it */
+#header .logo,
+#header .logo * {
+  border-bottom: none !important;
 }
 
 
 
 
-
-			#header .logo:hover {
-				border-color: #FF7F11 !important;
-				color: #FF7F11 !important;
-			}
 
 		@media screen and (max-width: 980px) {
 
@@ -4588,6 +4597,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
