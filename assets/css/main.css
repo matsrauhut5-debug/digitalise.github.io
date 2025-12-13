@@ -3449,20 +3449,24 @@ input, select, textarea {
 		}
 
 
+
 #header .logo {
-  color: #ffffff;
-  font-size: 1.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
+  color: #2C2C2C; /* White text for contrast */
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 2rem; /* Slightly smaller for balance */
+  font-weight: 900;
   letter-spacing: 0.075em;
+  text-transform: uppercase;
+  text-decoration: none;
   border: none; /* Remove thick border */
   padding: 0; /* Remove extra padding */
-  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 #header .logo:hover {
   color: #FF7F11; /* Accent color on hover */
 }
+
 
 
 			#header .logo:hover {
@@ -4576,6 +4580,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
