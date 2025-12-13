@@ -3450,22 +3450,30 @@ input, select, textarea {
 
 
 
+
 #header .logo {
-  color: #2C2C2C; /* White text for contrast */
+  transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+  pointer-events: auto;
+  border-style: solid;
+  border-color: #2C2C2C; /* Dark border color */
+  border-width: 4px; /* Slightly thinner for modern look */
+  border-radius: 0; /* Square corners */
   font-family: "Source Sans Pro", Helvetica, sans-serif;
-  font-size: 2rem; /* Slightly smaller for balance */
+  font-size: 2rem;
   font-weight: 900;
   letter-spacing: 0.075em;
+  line-height: 1;
+  padding: 1rem 1.75rem;
   text-transform: uppercase;
-  text-decoration: none;
-  border: none; /* Remove thick border */
-  padding: 0; /* Remove extra padding */
-  transition: color 0.3s ease;
+  color: #2C2C2C; /* Text color matches your theme */
+  background-color: #FFFFFF; /* White background inside the box */
 }
 
 #header .logo:hover {
-  color: #FF7F11; /* Accent color on hover */
+  border-color: #FF7F11; /* Accent color on hover */
+  color: #FF7F11; /* Text changes to accent color */
 }
+
 
 
 
@@ -4580,6 +4588,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
