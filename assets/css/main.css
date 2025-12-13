@@ -2908,11 +2908,11 @@ input, select, textarea {
 		text-align: center;
 	}
 
-	header {
+	 {
 		cursor: default;
 	}
 
-		header > .date {
+		 > .date {
 			display: block;
 			font-size: 0.8rem;
 			height: 1;
@@ -2920,32 +2920,32 @@ input, select, textarea {
 			position: relative;
 		}
 
-		header > p {
+		 > p {
 			font-style: italic;
 		}
 
-		header > h1 + p {
+		 > h1 + p {
 			font-size: 1.1rem;
 			margin-top: -0.5rem;
 			line-height: 2;
 		}
 
-		header > h2 + p {
+		 > h2 + p {
 			font-size: 1rem;
 			margin-top: -0.75rem;
 		}
 
-		header > h3 + p {
+		 > h3 + p {
 			font-size: 0.9rem;
 			margin-top: -0.75rem;
 		}
 
-		header > h4 + p {
+		 > h4 + p {
 			font-size: 0.8rem;
 			margin-top: -0.75rem;
 		}
 
-		header.major {
+		.major {
 			margin: 0 0 4rem 0;
 			text-align: center;
 		}
@@ -3380,8 +3380,6 @@ input, select, textarea {
 
 /* Header */
 
-/* Header */
-
 	#header {
 		color: #ffffff;
 		-moz-align-items: center;
@@ -3455,9 +3453,9 @@ input, select, textarea {
   transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
   pointer-events: auto;
   border-style: solid;
-  border-color: #2C2C2C; /* Dark border color */
+  border-color: #FFFFFF; /* Dark border color */
   border-width: 4px; /* Slightly thinner for modern look */
-  border-radius: 0; /* Square corners */
+  border-radius: 1; /* Square corners */
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   font-size: 2rem;
   font-weight: 900;
@@ -4588,6 +4586,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
