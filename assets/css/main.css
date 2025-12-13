@@ -3450,7 +3450,7 @@ input, select, textarea {
 
 /* Bigger logo image */
 #header .logo-frame img {
-  height: 13 px;           /* increase size here */
+  height: 80 px;           /* increase size here */
   width: auto;
   display: block;
   border: none !important; /* ensure the image itself has no border */
@@ -4589,6 +4589,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
