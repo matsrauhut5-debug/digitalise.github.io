@@ -3447,43 +3447,39 @@ input, select, textarea {
 		}
 
 
+/* ==== Site logo: controlled size, single rounded white stroke ==== */
 
-
-/* Bigger logo image – correct unit (no space) and stop theme overrides */
-#header .logo-frame img {
-  /* size: pick ONE: width or height; width is usually safer */
-  width: 88px;                 /* try 88–104px; adjust to taste */
-  height: auto;
-
-  display: block;
-  margin: 0;                   /* no extra centring inside the frame */
+/* The image size and cleanup */
+#site-logo img {
+  width: 92px !important;      /* adjust: try 84–104px */
+  height: auto !important;
+  display: block !important;
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
+  background: transparent !important;
 }
 
-/* Single white rounded stroke around the frame (not the image) */
-#header .logo-frame {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+/* The outer frame: one rounded white stroke around the image */
+#site-logo {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 
-  /* One crisp “border” without adding a second one */
-  box-shadow: 0 0 0 2px #ffffff;  /* stroke thickness */
-  border-radius: 12px;            /* corner roundness */
-  padding: 6px;                   /* spacing between image and stroke */
-  background: transparent;
-
+  /* One crisp stroke; NOT a second border */
+  box-shadow: 0 0 0 3px #ffffff !important;  /* stroke thickness */
+  border-radius: 14px !important;            /* corner roundness */
+  padding: 6px !important;                   /* gap between image and stroke */
+  background: transparent !important;
   border: none !important;
-  outline: none !important;
 }
 
-/* Centre the logo block within the header (optional) */
+/* Center the logo within the header */
 #header {
-  text-align: center;             /* centre the inline-block frame */
+  text-align: center !important;
 }
 
-/* Neutralise template link styles in case a link is still present */
+/* Neutralise any template link styles if a link remains elsewhere */
 #header a.logo,
 #header a.logo:hover,
 #header a.logo:focus,
@@ -3495,12 +3491,11 @@ input, select, textarea {
   text-decoration: none !important;
 }
 
-/* Defensive: remove any bottom borders the theme might add in header */
-#header .logo-frame,
-#header .logo-frame * {
+/* Defensive: remove bottom borders the theme may add in header */
+#header #site-logo,
+#header #site-logo * {
   border-bottom: none !important;
 }
-
 
 
 
@@ -4610,6 +4605,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
