@@ -3228,20 +3228,21 @@ input, select, textarea {
 		overflow: hidden;
 	}
 
+
+		/* Hintergrund für die Seite (Massively: Layer liegt auf #wrapper > .bg) */
 		#wrapper > .bg {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: #212931;
-			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/bg.jpg");
-			background-size: auto,								auto,														100% auto;
-			background-position: center,								center,														top center;
-			background-repeat: repeat,								no-repeat,													no-repeat;
-			background-attachment: scroll,								scroll,														scroll;
-			z-index: -1;
+		  background-color: #212931;
+		  background-image:
+		    url("/digitalise.github.io/images/overlay.png"),
+		    linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08)),
+		    url("/digitalise.github.io/images/bg2.png?v=6"); /* <- Dein neues Bild */
+		  background-size: auto, auto, cover;    /* unterste Ebene vollflächig */
+		  background-position: center, center, center;
+		  background-repeat: repeat, no-repeat, no-repeat;
+		  background-attachment: scroll, scroll, scroll; /* zuverlässig auf Mobile */
+		  z-index: -1;
 		}
+
 
 			#wrapper > .bg.fixed {
 				position: fixed;
@@ -4688,3 +4689,4 @@ input, select, textarea {
 		}
 
 	}
+
