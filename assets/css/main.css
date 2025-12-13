@@ -3380,35 +3380,19 @@ input, select, textarea {
 
 /* Header */
 
-	#header {
-		color: #ffffff;
-		-moz-align-items: center;
-		-webkit-align-items: center;
-		-ms-align-items: center;
-		align-items: center;
-		display: -moz-flex;
-		display: -webkit-flex;
-		display: -ms-flex;
-		display: flex;
-		-moz-flex-direction: column;
-		-webkit-flex-direction: column;
-		-ms-flex-direction: column;
-		flex-direction: column;
-		-moz-justify-content: -moz-flex-end;
-		-webkit-justify-content: -webkit-flex-end;
-		-ms-justify-content: -ms-flex-end;
-		justify-content: flex-end;
-		pointer-events: none;
-		-moz-user-select: none;
-		-webkit-user-select: none;
-		-ms-user-select: none;
-		user-select: none;
-		height: 20rem;
-		padding-bottom: 8rem;
-		position: relative;
-		text-align: center;
-		z-index: 2;
-	}
+#header {
+  background-color: #2C2C2C; /* Dark background for header */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the logo horizontally */
+  height: auto; /* Remove fixed height so it fits content */
+  padding: 1rem 2rem; /* Compact padding */
+  position: relative;
+  text-align: center;
+  z-index: 10;
+  border-radius: 0; /* Square edges */
+
 
 		#header input, #header select, #header textarea {
 			color: #ffffff;
@@ -3445,24 +3429,22 @@ input, select, textarea {
 			border-bottom-color: #ffffff;
 		}
 
-		#header .logo {
-			-moz-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.5s ease, -moz-transform 0.5s ease, visibility 0.5s;
-			-webkit-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.5s ease, -webkit-transform 0.5s ease, visibility 0.5s;
-			-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.5s ease, -ms-transform 0.5s ease, visibility 0.5s;
-			transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
-			pointer-events: auto;
-			border-style: solid;
-			border-color: #ffffff;
-			border-width: 5px !important;
-			font-family: "Source Sans Pro", Helvetica, sans-serif;
-			font-size: 2.25rem;
-			font-weight: 900;
-			letter-spacing: 0.075em;
-			line-height: 1;
-			padding: 1rem 1.75rem;
-			text-transform: uppercase;
-			visibility: visible;
-		}
+
+#header .logo {
+  color: #ffffff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  border: none; /* Remove thick border */
+  padding: 0; /* Remove extra padding */
+  text-decoration: none;
+}
+
+#header .logo:hover {
+  color: #FF7F11; /* Accent color on hover */
+}
+
 
 			#header .logo:hover {
 				border-color: #18bfef !important;
@@ -4575,6 +4557,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
