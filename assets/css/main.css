@@ -3455,7 +3455,7 @@ input, select, textarea {
   border-style: solid;
   border-color: #FFFFFF; /* Dark border color */
   border-width: 4px; /* Slightly thinner for modern look */
-  border-radius: 1; /* Square corners */
+  border-radius: 8px; /* Square corners */
   font-family: "Source Sans Pro", Helvetica, sans-serif;
   font-size: 2rem;
   font-weight: 900;
@@ -3467,10 +3467,12 @@ input, select, textarea {
   background-color: #FFFFFF; /* White background inside the box */
 }
 
+/* Override hover color for header logo */
 #header .logo:hover {
-  border-color: #FF7F11; /* Accent color on hover */
-  color: #FF7F11; /* Text changes to accent color */
+    border-color: #FF7F11 !important; /* Accent color for border */
+    color: #FF7F11 !important;        /* Accent color for text */
 }
+
 
 
 
@@ -4586,6 +4588,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
