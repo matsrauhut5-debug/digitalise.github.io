@@ -3447,26 +3447,39 @@ input, select, textarea {
 		}
 
 
-/* Logo styling */
-#header .logo img {
-  height: 80px;              /* Increase size (adjust as needed) */
+
+/* Bigger logo image */
+#header .logo-frame img {
+  height: 104px;           /* increase size here */
   width: auto;
   display: block;
-
-  /* Border and rounded corners */
-  border: 2px solid #ffffff; /* Thin white border */
-  border-radius: 12px;       /* Rounded corners */
-  padding: 4px;              /* Space between image and border */
-
-  /* Remove any unwanted effects */
-  box-shadow: none;
+  border: none !important; /* ensure the image itself has no border */
 }
 
-/* Remove hover color or click effects */
-#header .logo img:hover {
-  background: none;
-  transform: none;
+/* Single white rounded stroke created by CSS */
+#header .logo-frame {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* One crisp “border” without causing a second one */
+  box-shadow: 0 0 0 3px #ffffff;  /* stroke thickness */
+  border-radius: 16px;            /* corner roundness */
+  padding: 8px;                   /* spacing between image and stroke */
+  background: transparent;
+
+  /* Remove theme’s default link/border styles just in case */
+  border: none !important;
+  outline: none !important;
 }
+
+/* Remove hover/active effects (Massively adds accent on links) */
+#header .logo-frame:hover,
+#header .logo-frame:active {
+  background: none !important;
+  box-shadow: 0 0 0 3px #ffffff !important;
+}
+
 
 
 
@@ -4576,6 +4589,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
