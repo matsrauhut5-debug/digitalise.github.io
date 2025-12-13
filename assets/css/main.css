@@ -3448,36 +3448,57 @@ input, select, textarea {
 
 
 
-/* Bigger logo image */
+
+/* Bigger logo image – correct unit (no space) and stop theme overrides */
 #header .logo-frame img {
-  height: 80 px;           /* increase size here */
-  width: auto;
+  /* size: pick ONE: width or height; width is usually safer */
+  width: 88px;                 /* try 88–104px; adjust to taste */
+  height: auto;
+
   display: block;
-  border: none !important; /* ensure the image itself has no border */
+  margin: 0;                   /* no extra centring inside the frame */
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-/* Single white rounded stroke created by CSS */
+/* Single white rounded stroke around the frame (not the image) */
 #header .logo-frame {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  /* One crisp “border” without causing a second one */
-  box-shadow: 0 0 0 3px #ffffff;  /* stroke thickness */
-  border-radius: 16px;            /* corner roundness */
-  padding: 8px;                   /* spacing between image and stroke */
+  /* One crisp “border” without adding a second one */
+  box-shadow: 0 0 0 2px #ffffff;  /* stroke thickness */
+  border-radius: 12px;            /* corner roundness */
+  padding: 6px;                   /* spacing between image and stroke */
   background: transparent;
 
-  /* Remove theme’s default link/border styles just in case */
   border: none !important;
   outline: none !important;
 }
 
-/* Remove hover/active effects (Massively adds accent on links) */
-#header .logo-frame:hover,
-#header .logo-frame:active {
+/* Centre the logo block within the header (optional) */
+#header {
+  text-align: center;             /* centre the inline-block frame */
+}
+
+/* Neutralise template link styles in case a link is still present */
+#header a.logo,
+#header a.logo:hover,
+#header a.logo:focus,
+#header a.logo:active {
+  color: inherit !important;
   background: none !important;
-  box-shadow: 0 0 0 3px #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+/* Defensive: remove any bottom borders the theme might add in header */
+#header .logo-frame,
+#header .logo-frame * {
+  border-bottom: none !important;
 }
 
 
@@ -4589,6 +4610,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
