@@ -3230,16 +3230,23 @@ input, select, textarea {
 
 
 
-/* DEBUG: Bild allein, ohne Overlay/Gradient */
+
+/* Hintergrund NUR mit deinem Bild – Debug/Produktionssicher */
 #wrapper > .bg {
-  background-color: #212931; /* bleibt */
-  background-image: url("/digitalise.github.io/images/bg2.png?v=7"); /* NUR dein Bild */
-  background-size: cover;         /* vollflächig */
-  background-position: center;    /* zentriert */
-  background-repeat: no-repeat;   /* nicht kacheln */
-  background-attachment: scroll;  /* auf Mobile zuverlässig */
+  background-color: #212931;
+  background-image: url("/digitalise.github.io/images/bg2.png?v=9") !important; /* absoluter Pfad + Cache-Buster + Überschreiben */
+  background-size: cover !important;         /* volle Fläche */
+  background-position: center !important;    /* zentriert */
+  background-repeat: no-repeat !important;   /* nicht kacheln */
+  background-attachment: scroll !important;  /* mobil zuverlässig */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: -1;
 }
+
 
 
 
@@ -4688,5 +4695,6 @@ input, select, textarea {
 		}
 
 	}
+
 
 
