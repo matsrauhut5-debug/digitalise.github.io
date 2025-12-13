@@ -3446,48 +3446,27 @@ input, select, textarea {
 			border-bottom-color: #ffffff;
 		}
 
-			
-/* Header logo: non-clickable, no border, no hover colour */
-#header .logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;     /* safe even though not a link */
-  border: none;
-  box-shadow: none;
-  background: none;
-  padding: 0;
-  margin: 0;
-}
 
-/* Control the visible logo size */
+/* Logo styling */
 #header .logo img {
-  height: 56px;              /* adjust to taste: 48–72px works well */
+  height: 80px;              /* Increase size (adjust as needed) */
   width: auto;
   display: block;
-  border: none;              /* ensure no default image border */
+
+  /* Border and rounded corners */
+  border: 2px solid #ffffff; /* Thin white border */
+  border-radius: 12px;       /* Rounded corners */
+  padding: 4px;              /* Space between image and border */
+
+  /* Remove any unwanted effects */
   box-shadow: none;
 }
 
-/* Extra safety: even if someone wraps it in a link later, keep it clean */
-#header a.logo,
-#header a.logo:hover,
-#header a.logo:focus,
-#header a.logo:active {
-  border: none !important;
-  box-shadow: none !important;
-  background: none !important;
-  color: inherit !important; /* prevents theme accent on hover */
-  text-decoration: none !important;
+/* Remove hover color or click effects */
+#header .logo img:hover {
+  background: none;
+  transform: none;
 }
-
-/* If your global theme adds a bottom border to links inside the header, kill it */
-#header .logo,
-#header .logo * {
-  border-bottom: none !important;
-}
-
-
 
 
 
@@ -4597,6 +4576,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
