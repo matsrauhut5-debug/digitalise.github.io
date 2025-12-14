@@ -3744,6 +3744,8 @@ input, select, textarea {
 
 
 
+
+/* === Services section layout === */
 #main > .posts {
     display: -moz-flex;
     display: -webkit-flex;
@@ -3761,7 +3763,7 @@ input, select, textarea {
     width: 100%;
     padding: 0;
 
-    /* IMPORTANT: container transparent so page BG shows in seams */
+    /* Transparent container so seams show page background */
     background: transparent !important;
 }
 
@@ -3785,26 +3787,16 @@ input, select, textarea {
     width: 50%;
 }
 
-/* === Cards: white background, transparent ~3mm seams, rounded === */
+/* === Cards: white background, transparent seams (~3mm), rounded corners === */
 #main > .posts > article {
-    /* Make card content area white again so text is readable */
-    background: #ffffff;
-
-    /* Transparent borders become “seams” that show page background */
+    background: #ffffff;            /* Keep cards white for readability */
     border-style: solid;
-    border-color: transparent;
-    border-left-width: 12px;        /* ~3mm */
-    border-top-width: 12px;         /* ~3mm */
-
-    /* Prevent the card’s white background from painting under the border */
-    background-clip: padding-box;
-
-    /* Rounded corners for the visible seam edges */
-    border-radius: 10px;
-
-    /* Helps keep rounded corners clean when children extend to edges */
-    overflow: hidden;
-
+    border-color: transparent;      /* Transparent so page background shows */
+    border-left-width: 12px;        /* ~3mm thick */
+    border-top-width: 12px;         /* ~3mm thick */
+    background-clip: padding-box;   /* Prevent white from bleeding into border */
+    border-radius: 10px;            /* Rounded corners */
+    overflow: hidden;               /* Clean rounded edges */
     text-align: center;
 }
 
@@ -3812,16 +3804,11 @@ input, select, textarea {
     margin-bottom: 0;
 }
 
-/* Remove left seam on first column (so only inner seams show) */
-#main > .posts > article:nth-child(2n - 1) {
-    border-left-width: 0;
-}
+/* Remove outer seams */
+#main > .posts > article:nth-child(2n - 1) { border-left-width: 0; }
+#main > .posts > article:nth-child(-n + 2) { border-top-width: 0; }
 
-/* Remove top seam on first row */
-#main > .posts > article:nth-child(-n + 2) {
-    border-top-width: 0;
-}
-
+/* === Responsive adjustments === */
 @media screen and (max-width: 980px) {
     #main > .posts > * {
         width: 50%;
@@ -3843,22 +3830,11 @@ input, select, textarea {
         width: 100%;
     }
 
-    /* Keep ~3mm thickness on mobile too */
-    #main > .posts > article:nth-child(2n - 1) {
-        border-left-width: 12px;
-    }
-
-    #main > .posts > article:nth-child(-n + 2) {
-        border-top-width: 12px;
-    }
-
-    #main > .posts > article:nth-child(n) {
-        border-left-width: 0;
-    }
-
-    #main > .posts > article:nth-child(-n + 1) {
-        border-top-width: 0;
-    }
+    /* Keep ~3mm seams on mobile */
+    #main > .posts > article:nth-child(2n - 1) { border-left-width: 12px; }
+    #main > .posts > article:nth-child(-n + 2) { border-top-width: 12px; }
+    #main > .posts > article:nth-child(n)      { border-left-width: 0; }
+    #main > .posts > article:nth-child(-n + 1) { border-top-width: 0; }
 
     #main > .posts > article .image {
         max-width: 25rem;
@@ -3867,7 +3843,7 @@ input, select, textarea {
     }
 }
 
-
+/* === Keep your other media queries === */
 @media screen and (max-width: 736px) {
     #main > * {
         padding: 2rem 2rem 0.1rem 2rem;
@@ -3879,6 +3855,7 @@ input, select, textarea {
         width: 100%;
     }
 }
+
 
 
 
@@ -4624,6 +4601,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
