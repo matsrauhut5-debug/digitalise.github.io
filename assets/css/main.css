@@ -3742,6 +3742,7 @@ input, select, textarea {
 			}
 
 
+
 #main > .posts {
     display: -moz-flex;
     display: -webkit-flex;
@@ -3758,6 +3759,10 @@ input, select, textarea {
     text-align: center;
     width: 100%;
     padding: 0;
+
+    /* NEW: ensure the grid area itself is transparent so the page BG shows
+       through the borders/gaps between the cards */
+    background: transparent !important;
 }
 
 #main > .posts > * {
@@ -3782,12 +3787,23 @@ input, select, textarea {
 
 /* === Adjusted borders for transparent seams and rounded corners === */
 #main > .posts > article {
+    /* Keep article content readable over the page background.
+       If your cards are already white, keep it; otherwise, uncomment next line:
+       background: #ffffff; */
+    /* background: #ffffff; */
+
+    /* Transparent border ~3mm (≈12px) so the *container* background shows through */
     border-style: solid;
-    border-color: transparent;      /* Transparent so background shows through */
+    border-color: transparent;
     border-left-width: 12px;        /* ~3mm thick */
     border-top-width: 12px;         /* ~3mm thick */
-    background-clip: padding-box;   /* Prevent background from bleeding under border */
-    border-radius: 10px;            /* Rounded corners */
+
+    /* Prevent the article's own background from painting into the border area */
+    background-clip: padding-box;
+
+    /* Rounded corners for the visible seams */
+    border-radius: 10px;
+
     text-align: center;
 }
 
@@ -3826,7 +3842,7 @@ input, select, textarea {
         width: 100%;
     }
 
-    /* Adjusted for mobile: keep 3mm thickness */
+    /* Keep 3mm thickness on mobile too */
     #main > .posts > article:nth-child(2n - 1) {
         border-left-width: 12px;
     }
@@ -3849,6 +3865,7 @@ input, select, textarea {
         margin-right: auto;
     }
 }
+
 
 
 		@media screen and (max-width: 736px) {
@@ -4609,6 +4626,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
