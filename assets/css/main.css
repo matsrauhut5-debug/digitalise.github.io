@@ -3884,6 +3884,13 @@ input, select, textarea {
 
 		}
 
+
+/* Make the parent container transparent so the page background shows through */
+#main {
+  background: transparent !important;
+}
+
+
 /* Footer */
 
 	#footer {
@@ -4626,6 +4633,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
