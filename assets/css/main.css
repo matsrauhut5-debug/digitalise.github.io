@@ -3743,6 +3743,7 @@ input, select, textarea {
 
 
 
+
 #main > .posts {
     display: -moz-flex;
     display: -webkit-flex;
@@ -3760,8 +3761,7 @@ input, select, textarea {
     width: 100%;
     padding: 0;
 
-    /* NEW: ensure the grid area itself is transparent so the page BG shows
-       through the borders/gaps between the cards */
+    /* IMPORTANT: container transparent so page BG shows in seams */
     background: transparent !important;
 }
 
@@ -3785,24 +3785,25 @@ input, select, textarea {
     width: 50%;
 }
 
-/* === Adjusted borders for transparent seams and rounded corners === */
+/* === Cards: white background, transparent ~3mm seams, rounded === */
 #main > .posts > article {
-    /* Keep article content readable over the page background.
-       If your cards are already white, keep it; otherwise, uncomment next line:
-       background: #ffffff; */
-    /* background: #ffffff; */
+    /* Make card content area white again so text is readable */
+    background: #ffffff;
 
-    /* Transparent border ~3mm (≈12px) so the *container* background shows through */
+    /* Transparent borders become “seams” that show page background */
     border-style: solid;
     border-color: transparent;
-    border-left-width: 12px;        /* ~3mm thick */
-    border-top-width: 12px;         /* ~3mm thick */
+    border-left-width: 12px;        /* ~3mm */
+    border-top-width: 12px;         /* ~3mm */
 
-    /* Prevent the article's own background from painting into the border area */
+    /* Prevent the card’s white background from painting under the border */
     background-clip: padding-box;
 
-    /* Rounded corners for the visible seams */
+    /* Rounded corners for the visible seam edges */
     border-radius: 10px;
+
+    /* Helps keep rounded corners clean when children extend to edges */
+    overflow: hidden;
 
     text-align: center;
 }
@@ -3811,12 +3812,12 @@ input, select, textarea {
     margin-bottom: 0;
 }
 
-/* Remove left border on first column */
+/* Remove left seam on first column (so only inner seams show) */
 #main > .posts > article:nth-child(2n - 1) {
     border-left-width: 0;
 }
 
-/* Remove top border on first row */
+/* Remove top seam on first row */
 #main > .posts > article:nth-child(-n + 2) {
     border-top-width: 0;
 }
@@ -3842,7 +3843,7 @@ input, select, textarea {
         width: 100%;
     }
 
-    /* Keep 3mm thickness on mobile too */
+    /* Keep ~3mm thickness on mobile too */
     #main > .posts > article:nth-child(2n - 1) {
         border-left-width: 12px;
     }
@@ -3867,28 +3868,18 @@ input, select, textarea {
 }
 
 
-
-		@media screen and (max-width: 736px) {
-
-			#main > * {
-				padding: 2rem 2rem 0.1rem 2rem ;
-			}
-
-		}
-
-		@media screen and (max-width: 480px) {
-
-			#main {
-				width: 100%;
-			}
-
-		}
-
-
-/* Make the parent container transparent so the page background shows through */
-#main {
-  background: transparent !important;
+@media screen and (max-width: 736px) {
+    #main > * {
+        padding: 2rem 2rem 0.1rem 2rem;
+    }
 }
+
+@media screen and (max-width: 480px) {
+    #main {
+        width: 100%;
+    }
+}
+
 
 
 /* Footer */
@@ -4633,6 +4624,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
