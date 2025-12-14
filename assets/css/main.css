@@ -3856,6 +3856,11 @@ input, select, textarea {
     }
 }
 
+/* Make the parent wrapper behind posts transparent so seams show page background */
+#main .inner {
+    background: transparent !important;
+}
+
 
 
 
@@ -4601,6 +4606,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
