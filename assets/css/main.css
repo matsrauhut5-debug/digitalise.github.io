@@ -4638,66 +4638,75 @@ input, select, textarea {
 	opacity: 1 !important; /* Forces the image to be fully visible */
 }
 
-/* ADD THIS AT THE VERY END OF THE FILE */
+/* ADD THIS AT THE VERY END OF THE FILE (Replace previous profile code) */
 
 /* Profile Container: Image Left, Text Right */
 .profile-wrap {
 	display: flex;
-	align-items: flex-start; /* Aligns text to top of image */
+	align-items: flex-start; /* Aligns text to top */
 	justify-content: center;
 	gap: 2rem;
 	margin-top: 2rem;
-	border: none !important; /* Removes wrapper borders */
+	border: none !important;
 }
 
 /* Image Styling */
 .profile-img {
 	width: 300px;
 	height: auto;
-	border-radius: 20px; /* Rounded corners */
+	border-radius: 20px;
 	display: block;
-	flex-shrink: 0; /* Prevents image from squishing */
+	flex-shrink: 0;
 }
 
-/* Content Area (Paragraph + Bullets) */
+/* Content Area */
 .profile-content {
-	text-align: left;
+	text-align: left; /* Default for desktop */
 	flex: 1;
 }
 
 /* Remove borders from lists inside this section */
 .profile-content ul {
 	border: none !important;
-	margin-bottom: 0;
+	margin-bottom: 1rem;
+	list-style-position: inside; /* Helps list bullets fit better */
 }
 
 .profile-content ul li {
-	border-top: none !important; /* Removes lines between list items */
+	border-top: none !important;
 }
 
-/* The footer sentence below the image/text block */
-.profile-footer-text {
-	text-align: center;
-	margin-top: 2rem;
-	width: 100%;
+/* Specific styling for the 'Currently pursuing' text */
+.profile-sub-text {
+	font-weight: bold;
+	margin-top: 1rem;
+	display: block;
 }
 
-/* Mobile View: Keep side-by-side, but make image smaller */
+/* MOBILE VIEW FIXES */
 @media screen and (max-width: 736px) {
 	.profile-wrap {
 		gap: 1rem; /* Smaller gap */
+		align-items: flex-start;
 	}
 
 	.profile-img {
-		width: 110px !important; /* Much smaller image */
+		width: 100px !important; /* Smaller image for mobile */
 		border-radius: 10px;
 	}
 
+	/* Force text to align left to fix the ugly gaps */
 	.profile-content p, 
-	.profile-content ul {
-		font-size: 0.9rem; /* Slightly smaller text for fit */
+	.profile-content ul,
+	.profile-content li,
+	.profile-sub-text {
+		font-size: 0.85rem !important; /* Smaller font */
+		text-align: left !important;    /* FIXES THE GAPS */
+		line-height: 1.4;
+		margin-bottom: 0.5rem;
 	}
 }
+
 
 
 
