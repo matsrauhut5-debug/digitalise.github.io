@@ -3673,8 +3673,10 @@ input, select, textarea {
 
 /* Main */
 
+
 	#main {
-		background-color: #ffffff;
+	    background-color: #ffffff; /* White */
+	    opacity: 0.75; /* 75% visible */
 		position: relative;
 		margin: 0 auto;
 		width: calc(100% - 4rem);
@@ -4605,6 +4607,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
