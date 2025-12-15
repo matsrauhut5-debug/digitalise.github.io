@@ -3470,7 +3470,7 @@ input, select, textarea {
   box-shadow: 0 0 0 3px #ffffff !important;  /* stroke thickness */
   border-radius: 14px !important;            /* corner roundness */
   padding: 6px !important;                   /* gap between image and stroke */
-  background: transparent !important;
+  background: #ffffff !important;
   border: none !important;
 }
 
@@ -4633,6 +4633,7 @@ input, select, textarea {
 	height: auto;        /* Maintain aspect ratio */
 	opacity: 1 !important; /* Forces the image to be fully visible */
 }
+
 
 
 
