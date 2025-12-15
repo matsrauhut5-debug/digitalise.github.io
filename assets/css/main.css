@@ -3675,8 +3675,9 @@ input, select, textarea {
 
 
 	#main {
-	    background-color: #ffffff; /* White */
-	    opacity: 0.75; /* 75% visible */
+		/* Use RGBA for background transparency so the image stays solid */
+		background-color: rgba(255, 255, 255, 0.75);
+		/* opacity: 0.75;  <-- REMOVE OR DELETE THIS LINE */
 		position: relative;
 		margin: 0 auto;
 		width: calc(100% - 4rem);
@@ -4610,22 +4611,19 @@ input, select, textarea {
 
 /* Custom Home Hero Image Styling */
 .home-hero {
-	display: -moz-flex;
-	display: -webkit-flex;
-	display: -ms-flex;
-	display: flex;
-	-moz-justify-content: center;
-	-webkit-justify-content: center;
-	-ms-justify-content: center;
-	justify-content: center;
 	width: 100%;
 	margin: 2rem 0;
+	text-align: center; /* Ensures alignment context */
+	border: none !important; /* Removes unwanted borders inherited from #main */
+	padding: 0 !important;   /* Resets padding if inherited */
 }
 
 .home-hero__img {
-	max-width: 100%;
-	height: auto;
-	display: block;
+	display: block;      /* Required for margin auto to work */
+	margin: 0 auto;      /* Centers the image horizontally */
+	max-width: 100%;     /* Responsive width */
+	height: auto;        /* Maintain aspect ratio */
+	opacity: 1 !important; /* Forces the image to be fully visible */
 }
 
 
