@@ -4638,12 +4638,12 @@ input, select, textarea {
 	opacity: 1 !important; /* Forces the image to be fully visible */
 }
 
-/* ADD THIS AT THE VERY END OF THE FILE (Replace previous profile code) */
+/* ADD THIS AT THE VERY END OF THE FILE */
 
 /* Profile Container: Image Left, Text Right */
 .profile-wrap {
 	display: flex;
-	align-items: flex-start; /* Aligns text to top */
+	align-items: flex-start;
 	justify-content: center;
 	gap: 2rem;
 	margin-top: 2rem;
@@ -4661,51 +4661,70 @@ input, select, textarea {
 
 /* Content Area */
 .profile-content {
-	text-align: left; /* Default for desktop */
+	text-align: left;
 	flex: 1;
 }
 
 /* Remove borders from lists inside this section */
 .profile-content ul {
 	border: none !important;
-	margin-bottom: 1rem;
-	list-style-position: inside; /* Helps list bullets fit better */
+	margin-bottom: 0.5rem;
+	list-style-position: inside;
 }
 
 .profile-content ul li {
 	border-top: none !important;
 }
 
-/* Specific styling for the 'Currently pursuing' text */
-.profile-sub-text {
+/* --- VISIBILITY TOGGLES --- */
+
+/* Default: Show Desktop text, Hide Mobile text */
+.desktop-text {
+	display: block;
 	font-weight: bold;
 	margin-top: 1rem;
-	display: block;
 }
 
-/* MOBILE VIEW FIXES */
+.mobile-text {
+	display: none; /* Hidden on desktop */
+}
+
+/* --- MOBILE VIEW FIXES --- */
 @media screen and (max-width: 736px) {
 	.profile-wrap {
-		gap: 1rem; /* Smaller gap */
+		gap: 1rem;
 		align-items: flex-start;
 	}
 
 	.profile-img {
-		width: 100px !important; /* Smaller image for mobile */
+		width: 100px !important;
 		border-radius: 10px;
 	}
 
-	/* Force text to align left to fix the ugly gaps */
+	/* Force text alignment left to fix gaps */
 	.profile-content p, 
 	.profile-content ul,
-	.profile-content li,
-	.profile-sub-text {
-		font-size: 0.85rem !important; /* Smaller font */
-		text-align: left !important;    /* FIXES THE GAPS */
+	.profile-content li {
+		font-size: 0.85rem !important;
+		text-align: left !important;
 		line-height: 1.4;
 		margin-bottom: 0.5rem;
 	}
+
+	/* Toggle Visibility for Mobile */
+	.desktop-text {
+		display: none; /* Hide the one inside the side-block */
+	}
+
+	.mobile-text {
+		display: block; /* Show the one at the bottom */
+		text-align: center; /* Center it nicely below image */
+		font-weight: bold;
+		margin-top: 1.5rem;
+		font-size: 0.9rem;
+	}
 }
+
 
 
 
