@@ -4608,6 +4608,25 @@ input, select, textarea {
 
 	}
 
+/* Custom Home Hero Image Styling */
+.home-hero {
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	-moz-justify-content: center;
+	-webkit-justify-content: center;
+	-ms-justify-content: center;
+	justify-content: center;
+	width: 100%;
+	margin: 2rem 0;
+}
+
+.home-hero__img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
 
 
 
