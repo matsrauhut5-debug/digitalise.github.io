@@ -4634,6 +4634,43 @@ input, select, textarea {
 	opacity: 1 !important; /* Forces the image to be fully visible */
 }
 
+/* Profile Section Layout (Image Left, Text Right) */
+.profile-wrap {
+	display: flex;
+	align-items: center;  /* Vertically centers the text with the image */
+	justify-content: center;
+	gap: 3rem;           /* Space between image and text */
+	margin-top: 2rem;
+}
+
+/* Rounded Image Styling */
+.profile-img {
+	width: 300px;        /* Fixed width as requested */
+	height: auto;
+	border-radius: 20px; /* Rounded corners */
+	display: block;
+	flex-shrink: 0;      /* Prevents image from shrinking */
+	box-shadow: none;    /* Ensures no weird shadows/lines */
+}
+
+/* Text Styling */
+.profile-text {
+	text-align: left;    /* Aligns text to the left */
+	flex: 1;             /* Allows text to take up remaining width */
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 980px) {
+	.profile-wrap {
+		flex-direction: column; /* Stack them on smaller screens */
+		gap: 2rem;
+	}
+	
+	.profile-text {
+		text-align: center;
+	}
+}
+
 
 
 
