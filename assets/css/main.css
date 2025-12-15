@@ -3743,124 +3743,135 @@ input, select, textarea {
 
 
 
-
-
-/* === Services section layout === */
-#main > .posts {
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    -moz-flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -moz-align-items: -moz-stretch;
-    -webkit-align-items: -webkit-stretch;
-    -ms-align-items: -ms-stretch;
-    align-items: stretch;
-    text-align: center;
-    width: 100%;
-    padding: 0;
-
-    /* Transparent container so seams show page background */
-    background: transparent !important;
-}
-
-#main > .posts > * {
-    -moz-flex-shrink: 1;
-    -webkit-flex-shrink: 1;
-    -ms-flex-shrink: 1;
-    flex-shrink: 1;
-    -moz-flex-grow: 0;
-    -webkit-flex-grow: 0;
-    -ms-flex-grow: 0;
-    flex-grow: 0;
-}
-
-#main > .posts > * {
-    width: 50%;
-}
-
-#main > .posts > * {
-    padding: 4rem;
-    width: 50%;
-}
-
-/* === Cards: white background, transparent seams (~3mm), rounded corners === */
-#main > .posts > article {
-    background: #ffffff;            /* Keep cards white for readability */
-    border-style: solid;
-    border-color: transparent;      /* Transparent so page background shows */
-    border-left-width: 12px;        /* ~3mm thick */
-    border-top-width: 12px;         /* ~3mm thick */
-    background-clip: padding-box;   /* Prevent white from bleeding into border */
-    border-radius: 10px;            /* Rounded corners */
-    overflow: hidden;               /* Clean rounded edges */
-    text-align: center;
-}
-
-#main > .posts > article > :last-child {
-    margin-bottom: 0;
-}
-
-/* Remove outer seams */
-#main > .posts > article:nth-child(2n - 1) { border-left-width: 0; }
-#main > .posts > article:nth-child(-n + 2) { border-top-width: 0; }
-
-/* === Responsive adjustments === */
-@media screen and (max-width: 980px) {
-    #main > .posts > * {
-        width: 50%;
-    }
-
-    #main > .posts > * {
-        padding: 2.5rem;
-        width: 50%;
-    }
-}
-
-@media screen and (max-width: 736px) {
-    #main > .posts > * {
-        width: 100%;
-    }
-
-    #main > .posts > * {
-        padding: 2rem;
-        width: 100%;
-    }
-
-    /* Keep ~3mm seams on mobile */
-    #main > .posts > article:nth-child(2n - 1) { border-left-width: 12px; }
-    #main > .posts > article:nth-child(-n + 2) { border-top-width: 12px; }
-    #main > .posts > article:nth-child(n)      { border-left-width: 0; }
-    #main > .posts > article:nth-child(-n + 1) { border-top-width: 0; }
-
-    #main > .posts > article .image {
-        max-width: 25rem;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-/* === Keep your other media queries === */
-@media screen and (max-width: 736px) {
-    #main > * {
-        padding: 2rem 2rem 0.1rem 2rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    #main {
-        width: 100%;
-    }
-}
-
-/* Make the parent wrapper behind posts transparent so seams show page background */
-#main .inner {
-    background: transparent !important;
-}
-
+			/* === SERVICES: true transparent seams between cards ====================== */
+			
+			/* 1) Remove the white canvas and shadows under the posts area */
+			#main .inner {
+			  background: transparent !important;
+			  box-shadow: none !important;
+			  -webkit-box-shadow: none !important;
+			}
+			#main .inner::before,
+			#main .inner::after {
+			  content: none !important; /* neutralise theme decorative layers */
+			}
+			
+			/* 2) Make the .posts container itself transparent */
+			#main > .posts {
+			  background: transparent !important;
+			  padding: 0 !important;
+			}
+			
+			/* Safety: ensure no pseudo-element paints under the container */
+			#main > .posts::before,
+			#main > .posts::after {
+			  content: none !important;
+			}
+			
+			/* 3) Preferred layout: CSS Grid with gaps that reveal page background */
+			@supports (gap: 12px) {
+			  #main > .posts {
+			    display: grid !important;
+			    grid-template-columns: repeat(2, minmax(0, 1fr));
+			    gap: 12px; /* ~3mm transparent seams */
+			    align-items: stretch;
+			    text-align: center;
+			  }
+			
+			  /* Items: no inner padding; grid controls spacing */
+			  #main > .posts > * {
+			    padding: 0 !important;
+			    width: auto !important;
+			    flex: none !important;
+			  }
+			
+			  /* Cards: white interior, unified transparent border, rounded corners */
+			  #main > .posts > article {
+			    background: #ffffff;                 /* keep content readable */
+			    border: 12px solid transparent;      /* shows page background in the gap */
+			    background-clip: padding-box;        /* prevents white bleeding into border */
+			    border-radius: 10px;
+			    overflow: hidden;
+			    box-shadow: none !important;
+			    text-align: center;
+			  }
+			
+			  #main > .posts > article > :last-child {
+			    margin-bottom: 0;
+			  }
+			}
+			
+			/* 4) Fallback for older browsers: Flexbox with row/column gaps */
+			@supports not (gap: 12px) {
+			  #main > .posts {
+			    display: flex !important;
+			    flex-wrap: wrap;
+			    column-gap: 12px;
+			    row-gap: 12px;
+			    align-items: stretch;
+			    text-align: center;
+			  }
+			
+			  /* Two columns; account for the column gap */
+			  #main > .posts > * {
+			    width: calc(50% - 6px) !important;
+			    padding: 0 !important;
+			    flex: 0 0 auto !important;
+			  }
+			
+			  #main > .posts > article {
+			    background: #ffffff;
+			    border: 12px solid transparent;
+			    background-clip: padding-box;
+			    border-radius: 10px;
+			    overflow: hidden;
+			    box-shadow: none !important;
+			    text-align: center;
+			  }
+			
+			  #main > .posts > article > :last-child {
+			    margin-bottom: 0;
+			  }
+			}
+			
+			/* 5) Responsive: single column on mobile (seams remain transparent) */
+			@media screen and (max-width: 980px) {
+			  /* grid compresses automatically; flex fallback needs width update */
+			  @supports not (gap: 12px) {
+			    #main > .posts > * { width: 100% !important; }
+			  }
+			}
+			
+			@media screen and (max-width: 736px) {
+			  /* force single column when grid is active */
+			  #main > .posts {
+			    grid-template-columns: 1fr !important;
+			  }
+			
+			  /* flex fallback: already set to 100% above; keep images tidy */
+			  #main > .posts > article .image {
+			    max-width: 25rem;
+			    margin-left: auto;
+			    margin-right: auto;
+			  }
+			}
+			
+			/* Keep your generic mobile padding for other blocks, not posts items */
+			@media screen and (max-width: 736px) {
+			  #main > * {
+			    padding: 2rem 2rem 0.1rem 2rem;
+			  }
+			}
+			
+			/* Prevent legacy nth-child border tricks from reintroducing white seams */
+			#main > .posts > article:nth-child(2n - 1),
+			#main > .posts > article:nth-child(-n + 2),
+			#main > .posts > article:nth-child(n),
+			#main > .posts > article:nth-child(-n + 1) {
+			  border-left-width: 12px;  /* harmless default; unified border above wins */
+			  border-top-width: 12px;
+			}
+			
 
 
 
@@ -4606,6 +4617,7 @@ input, select, textarea {
 		}
 
 	}
+
 
 
 
