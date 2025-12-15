@@ -3706,9 +3706,11 @@ input, select, textarea {
 				margin-top: -2rem;
 			}
 
+/* MODIFY THIS BLOCK inside the #main section */
 			#main > .post header.major > h1, #main > .post header.major h2 {
-				font-size: 4rem;
-				line-height: 1.1;
+				/* Reduced from 4rem to 2.25rem to match Home page */
+				font-size: 2.25rem; 
+				line-height: 1.2;
 				margin: 0 0 2rem 0;
 			}
 
@@ -3740,8 +3742,10 @@ input, select, textarea {
 						margin-bottom: 2rem;
 					}
 
+/* MODIFY THIS inside the @media screen and (max-width: 736px) block */
 					#main > .post header.major > h1, #main > .post header.major h2 {
-						font-size: 2.5rem;
+						/* Reduced from 2.5rem to 1.75rem */
+						font-size: 1.75rem;
 						line-height: 1.2;
 						margin: 0 0 1.5rem 0;
 					}
@@ -4634,47 +4638,66 @@ input, select, textarea {
 	opacity: 1 !important; /* Forces the image to be fully visible */
 }
 
-/* Profile Section Layout (Image Left, Text Right) */
+/* ADD THIS AT THE VERY END OF THE FILE */
+
+/* Profile Container: Image Left, Text Right */
 .profile-wrap {
 	display: flex;
-	align-items: center;  /* Vertically centers the text with the image */
+	align-items: flex-start; /* Aligns text to top of image */
 	justify-content: center;
-	gap: 3rem;           /* Space between image and text */
+	gap: 2rem;
 	margin-top: 2rem;
+	border: none !important; /* Removes wrapper borders */
 }
 
-/* Rounded Image Styling */
+/* Image Styling */
 .profile-img {
-	width: 300px;        /* Fixed width as requested */
+	width: 300px;
 	height: auto;
 	border-radius: 20px; /* Rounded corners */
 	display: block;
-	flex-shrink: 0;      /* Prevents image from shrinking */
-	box-shadow: none;    /* Ensures no weird shadows/lines */
+	flex-shrink: 0; /* Prevents image from squishing */
 }
 
-/* Text Styling */
-.profile-text {
-	text-align: left;    /* Aligns text to the left */
-	flex: 1;             /* Allows text to take up remaining width */
+/* Content Area (Paragraph + Bullets) */
+.profile-content {
+	text-align: left;
+	flex: 1;
 }
 
-/* Mobile Responsiveness */
-@media screen and (max-width: 980px) {
+/* Remove borders from lists inside this section */
+.profile-content ul {
+	border: none !important;
+	margin-bottom: 0;
+}
+
+.profile-content ul li {
+	border-top: none !important; /* Removes lines between list items */
+}
+
+/* The footer sentence below the image/text block */
+.profile-footer-text {
+	text-align: center;
+	margin-top: 2rem;
+	width: 100%;
+}
+
+/* Mobile View: Keep side-by-side, but make image smaller */
+@media screen and (max-width: 736px) {
 	.profile-wrap {
-		flex-direction: column; /* Stack them on smaller screens */
-		gap: 2rem;
+		gap: 1rem; /* Smaller gap */
 	}
-	
-	.profile-text {
-		text-align: center;
+
+	.profile-img {
+		width: 110px !important; /* Much smaller image */
+		border-radius: 10px;
+	}
+
+	.profile-content p, 
+	.profile-content ul {
+		font-size: 0.9rem; /* Slightly smaller text for fit */
 	}
 }
-
-
-
-
-
 
 
 
