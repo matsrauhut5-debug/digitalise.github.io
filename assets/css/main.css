@@ -3785,10 +3785,8 @@ input, select, textarea {
 			}
 
 			#main > .posts > article {
-				border-color: #eeeeee;
-				border-left-width: 2px;
-				border-style: solid;
-				border-top-width: 2px;
+				border: solid 8px #ffffff; /* Bigger white borders */
+				border-radius: 25px;       /* Rounded corners */
 				text-align: center;
 			}
 
@@ -3797,11 +3795,11 @@ input, select, textarea {
 				}
 
 				#main > .posts > article:nth-child(2n - 1) {
-					border-left-width: 0;
+					border-left-width: 8px; /* Restores left border for rounded look */
 				}
 
 				#main > .posts > article:nth-child(-n + 2) {
-					border-top-width: 0;
+					border-top-width: 8px;  /* Restores top border for rounded look */
 				}
 
 			@media screen and (max-width: 980px) {
@@ -4627,6 +4625,7 @@ input, select, textarea {
 	height: auto;        /* Maintain aspect ratio */
 	opacity: 1 !important; /* Forces the image to be fully visible */
 }
+
 
 
 
