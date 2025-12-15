@@ -3671,10 +3671,10 @@ input, select, textarea {
 
 		}
 
+
 /* Main */
 
 	#main {
-		/* Transparent white background for the main container */
 		background-color: rgba(255, 255, 255, 0.75);
 		position: relative;
 		margin: 0 auto;
@@ -3698,7 +3698,8 @@ input, select, textarea {
 		}
 
 		#main > .post {
-			padding: 8rem 8rem 6rem 8rem ;
+			/* MODIFIED: Reduced bottom padding from 6rem to 2rem to close the gap */
+			padding: 8rem 8rem 2rem 8rem;
 		}
 
 			#main > .post header.major > .date {
@@ -3715,7 +3716,6 @@ input, select, textarea {
 				text-align: center;
 			}
 
-			/* Centers the paragraph text specifically in the featured post */
 			#main > .post.featured p {
 				text-align: center;
 			}
@@ -3723,7 +3723,8 @@ input, select, textarea {
 			@media screen and (max-width: 1280px) {
 
 				#main > .post {
-					padding: 6rem 4rem 4rem 4rem ;
+					/* MODIFIED: Reduced bottom padding here too */
+					padding: 6rem 4rem 2rem 4rem;
 				}
 
 			}
@@ -3764,7 +3765,6 @@ input, select, textarea {
 			text-align: center;
 			width: 100%;
 			padding: 0;
-			/* REMOVED THE THIN TOP BORDER LINE HERE */
 			border-top: 0 !important;
 		}
 
@@ -3788,28 +3788,20 @@ input, select, textarea {
 				width: 50%;
 			}
 
-			/* CARD STYLING (Dark background, white text) */
+			/* CARD STYLING */
 			#main > .posts > article {
-				/* Dark Background */
-				background-color: #2C2C2C;
+				/* MODIFIED: Dark gray with 25% transparency (0.75 alpha) */
+				background-color: rgba(44, 44, 44, 0.75);
 				
-				/* Spacing/Rounding */
 				border-radius: 25px !important;
-				margin: 10px; /* Adds space between the cards */
-				
-				/* Text Color: White */
+				margin: 10px;
 				color: #ffffff;
-				
-				/* Removes previous borders */
 				border: none !important;
 				text-align: center;
-				
-				/* Flex adjustment to account for margin */
 				width: calc(50% - 20px) !important; 
 				padding: 3rem 2rem;
 			}
 			
-			/* Make sure Headings and Links inside the dark card are White */
 			#main > .posts > article h1,
 			#main > .posts > article h2,
 			#main > .posts > article h2 a,
@@ -3822,7 +3814,6 @@ input, select, textarea {
 				color: #ffffff !important;
 			}
 
-			/* HOVER EFFECT: Orange */
 			#main > .posts > article h2 a:hover {
 				color: #FF7F11 !important;
 				border-bottom-color: transparent;
@@ -3832,7 +3823,6 @@ input, select, textarea {
 					margin-bottom: 0;
 				}
 
-				/* Reset previous grid logic */
 				#main > .posts > article:nth-child(n) {
 					border: none !important;
 				}
@@ -3845,7 +3835,6 @@ input, select, textarea {
 
 				#main > .posts > article {
 					padding: 2.5rem;
-					/* Maintain 50% width logic on tablet, accounting for margin */
 					width: calc(50% - 20px) !important;
 				}
 
@@ -3859,7 +3848,6 @@ input, select, textarea {
 
 				#main > .posts > article {
 					padding: 2rem;
-					/* Full width on mobile */
 					width: calc(100% - 20px) !important;
 				}
 
@@ -4645,6 +4633,7 @@ input, select, textarea {
 	height: auto;        /* Maintain aspect ratio */
 	opacity: 1 !important; /* Forces the image to be fully visible */
 }
+
 
 
 
