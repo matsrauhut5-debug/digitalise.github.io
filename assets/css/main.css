@@ -3447,39 +3447,43 @@ input, select, textarea {
 		}
 
 
-/* ==== Site logo: controlled size, single rounded white stroke ==== */
 
-/* The image size and cleanup */
-#site-logo img {
-  width: 92px !important;      /* adjust: try 84–104px */
-  height: auto !important;
-  display: block !important;
+
+/* Bigger logo image – correct unit (no space) and stop theme overrides */
+#header .logo-frame img {
+  /* size: pick ONE: width or height; width is usually safer */
+  width: 88px;                 /* try 88–104px; adjust to taste */
+  height: auto;
+
+  display: block;
+  margin: 0;                   /* no extra centring inside the frame */
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
-  background: transparent !important;
 }
 
-/* The outer frame: one rounded white stroke around the image */
-#site-logo {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+/* Single white rounded stroke around the frame (not the image) */
+#header .logo-frame {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  /* One crisp stroke; NOT a second border */
-  box-shadow: 0 0 0 3px #ffffff !important;  /* stroke thickness */
-  border-radius: 14px !important;            /* corner roundness */
-  padding: 6px !important;                   /* gap between image and stroke */
-  background: transparent !important;
+  /* One crisp “border” without adding a second one */
+  box-shadow: 0 0 0 2px #ffffff;  /* stroke thickness */
+  border-radius: 12px;            /* corner roundness */
+  padding: 6px;                   /* spacing between image and stroke */
+  background: transparent;
+
   border: none !important;
+  outline: none !important;
 }
 
-/* Center the logo within the header */
+/* Centre the logo block within the header (optional) */
 #header {
-  text-align: center !important;
+  text-align: center;             /* centre the inline-block frame */
 }
 
-/* Neutralise any template link styles if a link remains elsewhere */
+/* Neutralise template link styles in case a link is still present */
 #header a.logo,
 #header a.logo:hover,
 #header a.logo:focus,
@@ -3491,11 +3495,12 @@ input, select, textarea {
   text-decoration: none !important;
 }
 
-/* Defensive: remove bottom borders the theme may add in header */
-#header #site-logo,
-#header #site-logo * {
+/* Defensive: remove any bottom borders the theme might add in header */
+#header .logo-frame,
+#header .logo-frame * {
   border-bottom: none !important;
 }
+
 
 
 
@@ -3741,148 +3746,127 @@ input, select, textarea {
 
 			}
 
+		#main > .posts {
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+			-moz-flex-wrap: wrap;
+			-webkit-flex-wrap: wrap;
+			-ms-flex-wrap: wrap;
+			flex-wrap: wrap;
+			-moz-align-items: -moz-stretch;
+			-webkit-align-items: -webkit-stretch;
+			-ms-align-items: -ms-stretch;
+			align-items: stretch;
+			text-align: center;
+			width: 100%;
+			padding: 0;
+		}
 
+			#main > .posts > * {
+				-moz-flex-shrink: 1;
+				-webkit-flex-shrink: 1;
+				-ms-flex-shrink: 1;
+				flex-shrink: 1;
+				-moz-flex-grow: 0;
+				-webkit-flex-grow: 0;
+				-ms-flex-grow: 0;
+				flex-grow: 0;
+			}
 
-		
-/* === SERVICES: transparent seams + tidy cards ============================ */
-/* 0) Kill the white panel behind everything in the main area */
-#main {
-  background: transparent !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-}
-#main::before,
-#main::after {
-  content: none !important; /* remove theme decorative layers */
-}
+			#main > .posts > * {
+				width: 50%;
+			}
 
-/* 1) Remove the inner white canvas and any shadows */
-#main .inner {
-  background: transparent !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-}
-#main .inner::before,
-#main .inner::after {
-  content: none !important;
-}
+			#main > .posts > * {
+				padding: 4rem;
+				width: 50%;
+			}
 
-/* 2) Posts container must be transparent and have no fake spacing */
-#main > .posts {
-  background: transparent !important;
-  padding: 0 !important;
-}
+			#main > .posts > article {
+				border-color: #eeeeee;
+				border-left-width: 2px;
+				border-style: solid;
+				border-top-width: 2px;
+				text-align: center;
+			}
 
-/* Safety: ensure no container pseudo-layers */
-#main > .posts::before,
-#main > .posts::after {
-  content: none !important;
-}
+				#main > .posts > article > :last-child {
+					margin-bottom: 0;
+				}
 
-/* 3) Preferred: Grid with real transparent gaps that show the page bg */
-@supports (gap: 16px) {
-  #main > .posts {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px; /* transparent gutters */
-    align-items: stretch;
-    text-align: center;
-  }
+				#main > .posts > article:nth-child(2n - 1) {
+					border-left-width: 0;
+				}
 
-  /* let grid control widths; remove any legacy widths/padding */
-  #main > .posts > * {
-    padding: 0 !important;
-    width: auto !important;
-    flex: none !important;
-  }
+				#main > .posts > article:nth-child(-n + 2) {
+					border-top-width: 0;
+				}
 
-  /* White cards with rounded corners + transparent seam around them */
-  #main > .posts > article {
-    border: 12px solid transparent;       /* seam (transparent) */
-    background-clip: padding-box;         /* keep white inside the border */
-    background: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: none !important;
-    text-align: center;
-    /* Bring back *internal* padding so the format looks good */
-    padding: 2rem 2rem;
-  }
+			@media screen and (max-width: 980px) {
 
-  #main > .posts > article > :last-child {
-    margin-bottom: 0;
-  }
-}
+				#main > .posts > * {
+					width: 50%;
+				}
 
-/* 4) Fallback: Flex with column/row gaps (for older browsers) */
-@supports not (gap: 16px) {
-  #main > .posts {
-    display: flex !important;
-    flex-wrap: wrap;
-    column-gap: 16px;
-    row-gap: 16px;
-    align-items: stretch;
-    text-align: center;
-  }
+				#main > .posts > * {
+					padding: 2.5rem;
+					width: 50%;
+				}
 
-  /* two columns, accounting for the column gap */
-  #main > .posts > * {
-    width: calc(50% - 8px) !important;
-    padding: 0 !important;
-    flex: 0 0 auto !important;
-  }
+			}
 
-  #main > .posts > article {
-    border: 12px solid transparent;
-    background-clip: padding-box;
-    background: #ffffff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: none !important;
-    text-align: center;
-    padding: 2rem 2rem;                   /* internal spacing */
-  }
+			@media screen and (max-width: 736px) {
 
-  #main > .posts > article > :last-child {
-    margin-bottom: 0;
-  }
-}
+				#main > .posts > * {
+					width: 100%;
+				}
 
-/* 5) Responsive: one column on small screens, seams stay transparent */
-@media screen and (max-width: 980px) {
-  @supports not (gap: 16px) {
-    #main > .posts > * { width: 100% !important; }
-  }
-}
+				#main > .posts > * {
+					padding: 2rem;
+					width: 100%;
+				}
 
-@media screen and (max-width: 736px) {
-  #main > .posts {
-    grid-template-columns: 1fr !important; /* when grid is active */
-  }
-  #main > .posts > article .image {
-    max-width: 25rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
+				#main > .posts > article:nth-child(2n - 1) {
+					border-left-width: 2px;
+				}
 
-/* Keep generic mobile padding for other blocks (not posts items) */
-@media screen and (max-width: 736px) {
-  #main > * {
-    padding: 2rem 2rem 0.1rem 2rem;
-  }
-}
+				#main > .posts > article:nth-child(-n + 2) {
+					border-top-width: 2px;
+				}
 
-/* 6) Neutralise any legacy nth-child seam hacks from the theme */
-#main > .posts > article:nth-child(2n - 1),
-#main > .posts > article:nth-child(-n + 2),
-#main > .posts > article:nth-child(n),
-#main > .posts > article:nth-child(-n + 1) {
-  border-left-width: 12px;
-  border-top-width: 12px;
+				#main > .posts > article:nth-child(n) {
+					border-left-width: 0;
+				}
 
+				#main > .posts > article:nth-child(-n + 1) {
+					border-top-width: 0;
+				}
 
+				#main > .posts > article .image {
+					max-width: 25rem;
+					margin-left: auto;
+					margin-right: auto;
+				}
 
+			}
+
+		@media screen and (max-width: 736px) {
+
+			#main > * {
+				padding: 2rem 2rem 0.1rem 2rem ;
+			}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			#main {
+				width: 100%;
+			}
+
+		}
 
 /* Footer */
 
@@ -4626,15 +4610,6 @@ input, select, textarea {
 		}
 
 	}
-
-
-
-
-
-
-
-
-
 
 
 
