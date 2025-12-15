@@ -3716,7 +3716,9 @@ input, select, textarea {
 			#main > .post.featured {
 				text-align: center;
 			}
-
+			#main > .post.featured p {
+				text-align: center;
+			}
 			@media screen and (max-width: 1280px) {
 
 				#main > .post {
@@ -4625,6 +4627,7 @@ input, select, textarea {
 	height: auto;        /* Maintain aspect ratio */
 	opacity: 1 !important; /* Forces the image to be fully visible */
 }
+
 
 
 
