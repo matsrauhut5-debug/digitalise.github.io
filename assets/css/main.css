@@ -3671,13 +3671,13 @@ input, select, textarea {
 
 		}
 
+/* MODIFY THIS SECTION (Replace the whole #main block) */
+
 /* Main */
 
-
 	#main {
-		/* Use RGBA for background transparency so the image stays solid */
+		/* Adjusted: Transparent white background, solid content */
 		background-color: rgba(255, 255, 255, 0.75);
-		/* opacity: 0.75;  <-- REMOVE OR DELETE THIS LINE */
 		position: relative;
 		margin: 0 auto;
 		width: calc(100% - 4rem);
@@ -3716,9 +3716,12 @@ input, select, textarea {
 			#main > .post.featured {
 				text-align: center;
 			}
-			#main > .post.featured p {
+
+            /* ADDED: Centers the paragraph text specifically in the featured post */
+            #main > .post.featured p {
 				text-align: center;
 			}
+
 			@media screen and (max-width: 1280px) {
 
 				#main > .post {
@@ -3784,22 +3787,25 @@ input, select, textarea {
 				width: 50%;
 			}
 
+            /* MODIFIED: Borders for cards */
 			#main > .posts > article {
-				border: solid 8px #ffffff; /* Bigger white borders */
-				border-radius: 25px;       /* Rounded corners */
+				/* Force a white, rounded border on ALL sides */
+				border: solid 8px #ffffff !important;
+				border-radius: 25px !important;
 				text-align: center;
+				background-clip: padding-box;
 			}
 
 				#main > .posts > article > :last-child {
 					margin-bottom: 0;
 				}
 
-				#main > .posts > article:nth-child(2n - 1) {
-					border-left-width: 8px; /* Restores left border for rounded look */
-				}
-
-				#main > .posts > article:nth-child(-n + 2) {
-					border-top-width: 8px;  /* Restores top border for rounded look */
+                /* MODIFIED: Ensure grid logic doesn't hide borders anymore */
+				#main > .posts > article:nth-child(n) {
+					border-left-width: 8px !important;
+					border-top-width: 8px !important;
+					border-right-width: 8px !important;
+					border-bottom-width: 8px !important;
 				}
 
 			@media screen and (max-width: 980px) {
@@ -3826,28 +3832,11 @@ input, select, textarea {
 					width: 100%;
 				}
 
-				#main > .posts > article:nth-child(2n - 1) {
-					border-left-width: 2px;
-				}
-
-				#main > .posts > article:nth-child(-n + 2) {
-					border-top-width: 2px;
-				}
-
-				#main > .posts > article:nth-child(n) {
-					border-left-width: 0;
-				}
-
-				#main > .posts > article:nth-child(-n + 1) {
-					border-top-width: 0;
-				}
-
 				#main > .posts > article .image {
 					max-width: 25rem;
 					margin-left: auto;
 					margin-right: auto;
 				}
-
 			}
 
 		@media screen and (max-width: 736px) {
@@ -4625,6 +4614,7 @@ input, select, textarea {
 	height: auto;        /* Maintain aspect ratio */
 	opacity: 1 !important; /* Forces the image to be fully visible */
 }
+
 
 
 
