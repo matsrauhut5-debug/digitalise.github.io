@@ -4676,17 +4676,17 @@ input, select, textarea {
 	border-top: none !important;
 }
 
-/* --- VISIBILITY TOGGLES --- */
+/* --- VISIBILITY TOGGLES (UPDATED WITH !important) --- */
 
-/* Default: Show Desktop text, Hide Mobile text */
+/* DESKTOP DEFAULT: Show desktop text, Hide mobile text */
 .desktop-text {
-	display: block;
+	display: block !important;    /* Force Show */
 	font-weight: bold;
 	margin-top: 1rem;
 }
 
 .mobile-text {
-	display: none; /* Hidden on desktop */
+	display: none !important;     /* Force Hide */
 }
 
 /* --- MOBILE VIEW FIXES --- */
@@ -4711,23 +4711,19 @@ input, select, textarea {
 		margin-bottom: 0.5rem;
 	}
 
-	/* Toggle Visibility for Mobile */
+	/* MOBILE TOGGLE: Hide desktop text, Show mobile text */
 	.desktop-text {
-		display: none; /* Hide the one inside the side-block */
+		display: none !important;   /* Force Hide on Mobile */
 	}
 
 	.mobile-text {
-		display: block; /* Show the one at the bottom */
-		text-align: center; /* Center it nicely below image */
+		display: block !important;  /* Force Show on Mobile */
+		text-align: center;         /* Center it nicely below image */
 		font-weight: bold;
 		margin-top: 1.5rem;
 		font-size: 0.9rem;
 	}
 }
-
-
-
-
 
 
 
