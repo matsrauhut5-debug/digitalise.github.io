@@ -78,68 +78,75 @@
 				</section>
 					</div>
 
+				
 				<!-- Footer -->
-					<footer id="footer">
-
-	    			<section>
-	
-				        <!-- ⭐ Your NEW contact form goes here ⭐ -->
-				        <form id="contactForm" novalidate>
-				            <div class="fields">
-				                <div class="field">
-				                    <label for="name">Name</label>
-				                    <input type="text" id="name" name="name" required aria-required="true" />
-				                </div>
-				                <div class="field">
-				                    <label for="email">Email</label>
-				                    <input type="email" id="email" name="email" required aria-required="true" />
-				                </div>
-				                <div class="field">
-				                    <label for="message">Message</label>
-				                    <textarea id="message" name="message" rows="3" required aria-required="true"></textarea>
-				                </div>
+				<footer id="footer">
 				
-				                <!-- Honeypot (hidden from users) -->
-				                <div style="position:absolute; left:-9999px; top:-9999px;">
-				                    <label for="company">Company</label>
-				                    <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
-				                </div>
-				            </div>
+				  <section>
 				
-				            <ul class="actions">
-				                <li><button id="submitBtn" type="submit">Send Message</button></li>
-				            </ul>
-				        </form>
+				    <!-- Hidden iframe to receive the cross-origin response (prevents navigation) -->
+				    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 				
-				        <div id="status" role="status" aria-live="polite" style="margin-top:0.75rem;"></div>
+				    <!-- ⭐ Working contact form: standard POST to Apps Script (no CORS needed) -->
+				    https://script.google.com/macros/s/AKfycbxWYXH5BdHih-3n-P-0wsX7c_Lrcq3KAcjfqiixnS6AEdsRln__CSkqRO8tFbyx0idD/exec
+				      target="hidden_iframe"  <!-- keep user on page -->
+				      novalidate>
 				
+				      <div class="fields">
+				        <div class="field">
+				          <label for="name">Name</label>
+				          <input type="text" id="name" name="name" required aria-required="true" />
+				        </div>
+				        <div class="field">
+				          <label for="email">Email</label>
+				          <input type="email" id="email" name="email" required aria-required="true" />
+				        </div>
+				        <div class="field">
+				          <label for="message">Message</label>
+				          <textarea id="message" name="message" rows="3" required aria-required="true"></textarea>
+				        </div>
+				
+				        <!-- Honeypot (hidden from users) -->
+				        <div style="position:absolute; left:-9999px; top:-9999px;">
+				          <label for="company">Company</label>
+				          <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+				        </div>
+				      </div>
+				
+				      <ul class="actions">
+				        <li><button id="submitBtn" type="submit">Send Message</button></li>
+				      </ul>
+				    </form>
+				
+				    <div id="status" role="status" aria-live="polite" style="margin-top:0.75rem;"></div>
+				
+				  </section>
+				
+				  <section class="split contact">
+				    <section class="alt">
+				      <h3>Address</h3>
+				      <p>1234 Somewhere Road #87257<br />
+				      Nashville, TN 00000-0000</p>
 				    </section>
-
-						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p>1234 Somewhere Road #87257<br />
-								Nashville, TN 00000-0000</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(000) 000-0000</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">info@untitled.tld</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+				    <section>
+				      <h3>Phone</h3>
+				      <p><a href="#">(000) 000-0000</a></p>
+				    </section>
+				    <section>
+				      <h3>Email</h3>
+				      <p><a href="#">info@untitled.tld</a></p>
+				    </section>
+				    <section>
+				      <h3>Social</h3>
+				      <ul class="icons alt">
+				        <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+				        <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+				        <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+				        <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+				      </ul>
+				    </section>
+				  </section>
+				</footer>
 
 	      <!-- Copyright -->
 	      <div id="copyright">
@@ -151,66 +158,42 @@
 		<!-- Scripts -->
 
 			
+
 			<script>
 			(function() {
 			  const form = document.getElementById('contactForm');
+			  const iframe = document.getElementById('hidden_iframe');
 			  const statusEl = document.getElementById('status');
 			  const submitBtn = document.getElementById('submitBtn');
-			
-			  // Your deployed Apps Script Web App URL:
-			  const ENDPOINT = "https://script.google.com/macros/s/AKfycbxWYXH5BdHih-3n-P-0wsX7c_Lrcq3KAcjfqiixnS6AEdsRln__CSkqRO8tFbyx0idD/exec";
 			
 			  function validateEmail(email) {
 			    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
 			  }
 			
-			  form.addEventListener('submit', async function(e) {
-			    e.preventDefault();
-			    statusEl.textContent = '';
+			  // Client-side validation before letting the browser submit the form
+			  form.addEventListener('submit', function(e) {
+			    const name = form.name.value.trim();
+			    const email = form.email.value.trim();
+			    const message = form.message.value.trim();
 			
-			    // --- Use URLSearchParams (simple CORS; no preflight) ---
-			    const params = new URLSearchParams();
-			    params.append('name', form.name.value.trim());
-			    params.append('email', form.email.value.trim());
-			    params.append('message', form.message.value.trim());
-			    params.append('company', form.company.value.trim()); // honeypot
-			    params.append('userAgent', navigator.userAgent);
+			    if (!name) { e.preventDefault(); statusEl.textContent = 'Please enter your name.'; return; }
+			    if (!validateEmail(email)) { e.preventDefault(); statusEl.textContent = 'Please enter a valid email.'; return; }
+			    if (!message) { e.preventDefault(); statusEl.textContent = 'Please enter a message.'; return; }
 			
-			    // Client-side validation (optional but recommended)
-			    if (!params.get('name')) { statusEl.textContent = 'Please enter your name.'; return; }
-			    if (!validateEmail(params.get('email'))) { statusEl.textContent = 'Please enter a valid email.'; return; }
-			    if (!params.get('message')) { statusEl.textContent = 'Please enter a message.'; return; }
-			
+			    statusEl.textContent = 'Sending…';
 			    submitBtn.disabled = true;
-			    submitBtn.textContent = 'Sending…';
+			  });
 			
-			    try {
-			      const res = await fetch(ENDPOINT, {
-			        method: 'POST',
-			        // ⚠️ DO NOT set any headers (esp. Content-Type) → keeps it a simple request
-			        body: params
-			      });
-			
-			      const text = await res.text();
-			      let data = {};
-			      try { data = JSON.parse(text); } catch {}
-			
-			      if (!res.ok || !data.ok) {
-			        throw new Error(data.error || ('HTTP ' + res.status + ' – ' + text));
-			      }
-			
-			      statusEl.textContent = 'Thank you! Your message has been sent.';
-			      form.reset();
-			    } catch (err) {
-			      console.error(err);
-			      statusEl.textContent = 'Sorry, something went wrong. ' + err.message;
-			    } finally {
-			      submitBtn.disabled = false;
-			      submitBtn.textContent = 'Send Message';
-			    }
+			  // When the hidden iframe loads, the server has responded (success path)
+			  iframe.addEventListener('load', function() {
+			    // We cannot read the iframe content (cross-origin), but load==success is enough here
+			    statusEl.textContent = 'Thank you! Your message has been sent.';
+			    form.reset();
+			    submitBtn.disabled = false;
 			  });
 			})();
 			</script>
+
 
 			<!-- Existing Massively scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -224,6 +207,7 @@
 
 	</body>
 </html>
+
 
 
 
