@@ -4730,13 +4730,16 @@ input, select, textarea {
 	display: block;
 	margin: 0 auto 1.5rem auto;
 	
-	/* Force consistent size */
-	width: 100%;        /* Fill the width of the card */
-	height: 220px;      /* Fixed height for all images (Adjust this number if you want them taller/shorter) */
-	object-fit: cover;  /* Ensures image fills the box without distorting/stretching */
-	object-position: center; /* Centers the image content */
+	width: 100%;
+	/* Force the exact aspect ratio of your original image (1278x721) */
+	aspect-ratio: 1278 / 721;
+	
+	/* Ensures the General image fills this size exactly like the others */
+	object-fit: cover;
+	object-position: center;
 	
 	border-radius: 15px;
+	box-shadow: none !important; /* Shadow removed */
 }
 
 /* Hover effect */
