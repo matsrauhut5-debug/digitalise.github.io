@@ -4725,6 +4725,21 @@ input, select, textarea {
 	}
 }
 
+/* Service Card Images */
+.service-card-img {
+	display: block;
+	margin: 0 auto 1.5rem auto; /* Centers image and adds space below it */
+	max-width: 100%;
+	height: auto;
+	border-radius: 15px; /* Rounded corners for the image */
+	box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Optional: Slight shadow for depth */
+}
+
+/* Hover effect for the images */
+.service-card-img:hover {
+	transform: scale(1.02); /* Slight zoom on hover */
+	transition: transform 0.2s ease;
+}
 
 
 
