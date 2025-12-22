@@ -4624,18 +4624,21 @@ input, select, textarea {
 /* Custom Home Hero Image Styling */
 .home-hero {
 	width: 100%;
-	margin: 2rem 0;
-	text-align: center; /* Ensures alignment context */
-	border: none !important; /* Removes unwanted borders inherited from #main */
-	padding: 0 !important;   /* Resets padding if inherited */
+	margin: 2rem 0 0 0;
+	text-align: center;
+	border: none !important;
+	padding: 0 !important;
 }
 
 .home-hero__img {
-	display: block;      /* Required for margin auto to work */
-	margin: 0 auto;      /* Centers the image horizontally */
-	max-width: 100%;     /* Responsive width */
-	height: auto;        /* Maintain aspect ratio */
-	opacity: 1 !important; /* Forces the image to be fully visible */
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+	height: auto;
+	opacity: 1 !important;
+	
+	/* ADDED: Rounds the corners */
+	border-radius: 25px; 
 }
 
 /* ADD THIS AT THE VERY END OF THE FILE */
@@ -4747,6 +4750,7 @@ input, select, textarea {
 	transform: scale(1.02);
 	transition: transform 0.2s ease;
 }
+
 
 
 
