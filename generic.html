@@ -150,13 +150,14 @@
 
 		<!-- Scripts -->
 
+			
 			<script>
 			(function() {
 			  const form = document.getElementById('contactForm');
 			  const statusEl = document.getElementById('status');
 			  const submitBtn = document.getElementById('submitBtn');
 			
-			  // 🔗 Paste your Google Apps Script Web App URL here
+			  // Your deployed Apps Script Web App URL:
 			  const ENDPOINT = "https://script.google.com/macros/s/AKfycbxWYXH5BdHih-3n-P-0wsX7c_Lrcq3KAcjfqiixnS6AEdsRln__CSkqRO8tFbyx0idD/exec";
 			
 			  function validateEmail(email) {
@@ -167,17 +168,18 @@
 			    e.preventDefault();
 			    statusEl.textContent = '';
 			
-			    const payload = {
-			      name: form.name.value.trim(),
-			      email: form.email.value.trim(),
-			      message: form.message.value.trim(),
-			      company: form.company.value.trim(),
-			      userAgent: navigator.userAgent
-			    };
+			    // --- Use URLSearchParams (simple CORS; no preflight) ---
+			    const params = new URLSearchParams();
+			    params.append('name', form.name.value.trim());
+			    params.append('email', form.email.value.trim());
+			    params.append('message', form.message.value.trim());
+			    params.append('company', form.company.value.trim()); // honeypot
+			    params.append('userAgent', navigator.userAgent);
 			
-			    if (!payload.name) { statusEl.textContent = 'Please enter your name.'; return; }
-			    if (!validateEmail(payload.email)) { statusEl.textContent = 'Please enter a valid email.'; return; }
-			    if (!payload.message) { statusEl.textContent = 'Please enter a message.'; return; }
+			    // Client-side validation (optional but recommended)
+			    if (!params.get('name')) { statusEl.textContent = 'Please enter your name.'; return; }
+			    if (!validateEmail(params.get('email'))) { statusEl.textContent = 'Please enter a valid email.'; return; }
+			    if (!params.get('message')) { statusEl.textContent = 'Please enter a message.'; return; }
 			
 			    submitBtn.disabled = true;
 			    submitBtn.textContent = 'Sending…';
@@ -185,21 +187,23 @@
 			    try {
 			      const res = await fetch(ENDPOINT, {
 			        method: 'POST',
-			        headers: { 'Content-Type': 'application/json' },
-			        body: JSON.stringify(payload)
+			        // ⚠️ DO NOT set any headers (esp. Content-Type) → keeps it a simple request
+			        body: params
 			      });
 			
-			      const data = await res.json().catch(() => ({}));
+			      const text = await res.text();
+			      let data = {};
+			      try { data = JSON.parse(text); } catch {}
 			
 			      if (!res.ok || !data.ok) {
-			        throw new Error(data.error || ('HTTP ' + res.status));
+			        throw new Error(data.error || ('HTTP ' + res.status + ' – ' + text));
 			      }
 			
 			      statusEl.textContent = 'Thank you! Your message has been sent.';
 			      form.reset();
 			    } catch (err) {
 			      console.error(err);
-			      statusEl.textContent = 'Sorry, something went wrong. Please try again later.';
+			      statusEl.textContent = 'Sorry, something went wrong. ' + err.message;
 			    } finally {
 			      submitBtn.disabled = false;
 			      submitBtn.textContent = 'Send Message';
@@ -207,7 +211,7 @@
 			  });
 			})();
 			</script>
-			
+
 			<!-- Existing Massively scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -220,6 +224,7 @@
 
 	</body>
 </html>
+
 
 
 
