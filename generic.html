@@ -81,138 +81,129 @@
 				
 
 			
-				   <!-- Footer -->
-				    <footer id="footer">
+
+				<!-- Footer -->
+				<footer id="footer">
 				
-				      <section>
-				        <!-- Hidden iframe to receive the cross-origin response (prevents navigation) -->
-				        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+				  <section>
+				    <!-- Hidden iframe to receive the cross-origin response (prevents navigation) -->
+				    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 				
-				        <!-- ⭐ Working contact form: standard POST to Apps Script (no CORS needed) -->
-				        https://script.google.com/macros/s/AKfycbxWYXH5BdHih-3n-P-0wsX7c_Lrcq3KAcjfqiixnS6AEdsRln__CSkqRO8tFbyx0idD/exec"
-				          id="contactForm"
-				          target="hidden_iframe"  <!-- keep user on page -->
-				          method="POST"
-				          novalidate>
+				    <!-- ⭐ Working contact form: standard POST to Apps Script (no CORS needed) -->
+				    <form
+				      id="contactForm"
+				      action="https://script.google.com/macros/s/AKfycbxWYXH5BdHih-3n-P-0wsX7c_Lrcq3KAcjfqiixnS6AEdsRln__CSkqRO8tFbyx0idD/exec"
+				      method="POST"
+				      target="hidden_iframe"
+				      novalidate>
 				
-				          <div class="fields">
-				            <div class="field">
-				              <label for="name">Name</label>
-				              <input type="text" id="name" name="name" required aria-required="true" />
-				            </div>
+				      <div class="fields">
+				        <div class="field">
+				          <label for="name">Name</label>
+				          <input type="text" id="name" name="name" required aria-required="true" />
+				        </div>
 				
-				            <div class="field">
-				              <label for="email">Email</label>
-				              <input type="email" id="email" name="email" required aria-required="true" />
-				            </div>
+				        <div class="field">
+				          <label for="email">Email</label>
+				          <input type="email" id="email" name="email" required aria-required="true" />
+				        </div>
 				
-				            <div class="field">
-				              <label for="message">Message</label>
-				              <textarea id="message" name="message" rows="3" required aria-required="true"></textarea>
-				            </div>
+				        <div class="field">
+				          <label for="message">Message</label>
+				          <textarea id="message" name="message" rows="3" required aria-required="true"></textarea>
+				        </div>
 				
-				            <!-- Honeypot (hidden from users; bots will fill it) -->
-				            <div style="position:absolute; left:-9999px; top:-9999px;">
-				              <label for="company">Company</label>
-				              <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
-				            </div>
+				        <!-- Honeypot (hidden from users; bots will fill it) -->
+				        <div style="position:absolute; left:-9999px; top:-9999px;">
+				          <label for="company">Company</label>
+				          <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+				        </div>
 				
-				            <!-- Hidden user-agent (helps when request headers aren’t forwarded) -->
-				            <input type="hidden" id="userAgent" name="userAgent" value="">
-				          </div>
+				        <!-- Hidden user-agent (helps when request headers aren’t forwarded) -->
+				        <input type="hidden" id="userAgent" name="userAgent" value="">
+				      </div>
 				
-				          <ul class="actions">
-				            <li><button id="submitBtn" type="submit">Send Message</button></li>
-				          </ul>
-				        </form>
-				
-				        <div id="status" role="status" aria-live="polite" style="margin-top:0.75rem;"></div>
-				      </section>
-				
-				      <!-- Contact / About sections (kept as in your original) -->
-				      <section class="split contact">
-				        <section class="alt">
-				          <h3>Address</h3>
-				          <p>1234 Somewhere Road #87257<br />
-				             Nashville, TN 00000-0000</p>
-				        </section>
-				        <section>
-				          <h3>Phone</h3>
-				          <p><a href="#">(000) 000-0000</a></p>
-				        </section>
-				        <section>
-				          <h3>Email</h3>
-				          <p><a href="#">info@untitled.tld</a></p>
-				        </section>
-				        <section>
-				          <h3>Social</h3>
-				          <ul class="icons alt">
-				            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-				            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-				            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-				            <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-				          </ul>
-				        </section>
-				      </section>
-				    </footer>
-				
-				    <!-- Copyright -->
-				    <div id="copyright">
-				      <ul>
-				        <li>&copy; 2025 Mats Rauhut</li>
-				        <li>Design: <a href="https://html5up.net">HTML5 UP</a> — License:
-				          <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
-				        </li>
+				      <ul class="actions">
+				        <li><button id="submitBtn" type="submit">Send Message</button></li>
 				      </ul>
-				    </div>
+				    </form>
 				
-				  </div>
+				    <div id="status" role="status" aria-live="polite" style="margin-top:0.75rem;"></div>
+				  </section>
 				
-				  <!-- Contact form wiring -->
-				  <script>
-				  (function() {
-				    const form = document.getElementById('contactForm');
-				    const iframe = document.getElementById('hidden_iframe');
-				    const statusEl = document.getElementById('status');
-				    const submitBtn = document.getElementById('submitBtn');
-				    const uaInput = document.getElementById('userAgent');
+				  <!-- Contact / About sections (kept) -->
+				  <section class="split contact">
+				    <section class="alt">
+				      <h3>Address</h3>
+				      <p>1234 Somewhere Road #87257<br />
+				      Nashville, TN 00000-0000</p>
+				    </section>
+				    <section>
+				      <h3>Phone</h3>
+				      <p><a href="#">(000) 000-0000</a></p>
+				    </section>
+				    <section>
+				      <h3>Email</h3>
+				      <p><a href="#">info@untitled.tld</a></p>
+				    </section>
+				    <section>
+				      <h3>Social</h3>
+				      <ul class="icons alt">
+				        <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+				        <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+				        <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+				        <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+				      </ul>
+				    </section>
+				  </section>
+				</footer>
 				
-				    // Guard: if the form is not found, avoid JS errors
-				    if (!form || !iframe || !submitBtn || !statusEl) {
-				      console.error('Contact form elements not found. Ensure the <form id="contactForm"> exists.');
-				      return;
-				    }
+				<!-- Contact form wiring -->
+				<script>
+				(function() {
+				  const form = document.getElementById('contactForm');
+				  const iframe = document.getElementById('hidden_iframe');
+				  const statusEl = document.getElementById('status');
+				  const submitBtn = document.getElementById('submitBtn');
+				  const uaInput = document.getElementById('userAgent');
 				
-				    function validateEmail(email) {
-				      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
-				    }
+				  // Guard: if the form is not found, avoid JS errors
+				  if (!form || !iframe || !submitBtn || !statusEl) {
+				    console.error('Contact form elements not found. Ensure the <form id="contactForm"> exists.');
+				    return;
+				  }
 				
-				    // Client-side validation before letting the browser submit the form
-				    form.addEventListener('submit', function(e) {
-				      const name = form.name.value.trim();
-				      const email = form.email.value.trim();
-				      const message = form.message.value.trim();
+				  function validateEmail(email) {
+				    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
+				  }
 				
-				      if (!name) { e.preventDefault(); statusEl.textContent = 'Please enter your name.'; return; }
-				      if (!validateEmail(email)) { e.preventDefault(); statusEl.textContent = 'Please enter a valid email.'; return; }
-				      if (!message) { e.preventDefault(); statusEl.textContent = 'Please enter a message.'; return; }
+				  // Client-side validation before letting the browser submit the form
+				  form.addEventListener('submit', function(e) {
+				    const name = form.name.value.trim();
+				    const email = form.email.value.trim();
+				    const message = form.message.value.trim();
 				
-				      // Populate userAgent field
-				      uaInput.value = navigator.userAgent || '';
+				    if (!name) { e.preventDefault(); statusEl.textContent = 'Please enter your name.'; return; }
+				    if (!validateEmail(email)) { e.preventDefault(); statusEl.textContent = 'Please enter a valid email.'; return; }
+				    if (!message) { e.preventDefault(); statusEl.textContent = 'Please enter a message.'; return; }
 				
-				      statusEl.textContent = 'Sending…';
-				      submitBtn.disabled = true;
-				    });
+				    // Populate userAgent field
+				    uaInput.value = navigator.userAgent || '';
 				
-				    // When the hidden iframe loads, the server has responded (success path)
-				    iframe.addEventListener('load', function() {
-				      // We cannot read the iframe content (cross-origin), but load==success is enough here
-				      statusEl.textContent = 'Thank you! Your message has been sent.';
-				      form.reset();
-				      submitBtn.disabled = false;
-				    });
-				  })();
-				  </script>
+				    statusEl.textContent = 'Sending…';
+				    submitBtn.disabled = true;
+				  });
+				
+				  // When the hidden iframe loads, the server has responded (success path)
+				  iframe.addEventListener('load', function() {
+				    // We cannot read the iframe content (cross-origin), but load==success is enough here
+				    statusEl.textContent = 'Thank you! Your message has been sent.';
+				    form.reset();
+				    submitBtn.disabled = false;
+				  });
+				})();
+				</script>
+
 				
 				  <!-- Theme JS -->
 				  <script src="assets/js/jquery.min.js"></script>
@@ -225,6 +216,7 @@
 
 	</body>
 </html>
+
 
 
 
